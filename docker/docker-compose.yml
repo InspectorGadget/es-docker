@@ -21,6 +21,11 @@ services:
       nofile:
         soft: 10000
         hard: 10000
+    command: [ "eswrapper" ]
+    entrypoint:
+      - "/bin/tini"
+      - "--"
+      - "/usr/local/bin/docker-entrypoint.sh"
     volumes:
       - data:/usr/share/elasticsearch/data
     networks:
