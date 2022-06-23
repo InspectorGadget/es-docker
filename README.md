@@ -19,5 +19,5 @@ pip install -r requirements.txt
 python elastic_search.py
 ```
 
-**Output:**
+**Output:** <br>
 ![Response](images/image-1.png)
