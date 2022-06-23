@@ -10,6 +10,7 @@ cd ./docker
 docker-compose -p elasticstack up -d
 ```
 ## 3. Visually verify if ElasticSearch is running
+![Response](images/image-2.png)
 ## 4. Setup testing script for ElasticSearch
 - Run this on the main folder of the cloned project. ('./es-docker/')
 ```
