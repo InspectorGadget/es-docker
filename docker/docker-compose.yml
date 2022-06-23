@@ -1,0 +1,35 @@
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.4
+    container_name: elasticsearch
+    stdin_open: true
+    tty: true
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - node.name=es01
+      - xpack.security.enabled=true
+      - cluster.name=es-docker-cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 10000
+        hard: 10000
+    volumes:
+      - data:/usr/share/elasticsearch/data
+    networks:
+      - elasticnetwork
+
+volumes:
+  data:
+    driver: local
+networks:
+  elasticnetwork:
+    driver: bridge
+    
